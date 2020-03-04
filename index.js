@@ -13,6 +13,7 @@ const DB_URL = process.env.DB_URL;
 const DB_PORT = process.env.DB_PORT;
 const DB_NAME = process.env.DB_NAME;
 const DB_COLLECTION = process.env.DB_COLLECTION;
+const TIMEZONE = process.env.TIMEZONE;
 
 const app = express();
 const mongoClient = new MongoClient(`${DB_URL}:${DB_PORT}`, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -138,5 +139,5 @@ cron.schedule('* 22 * * *', () => {
   })
 }, {
   scheduled: true,
-  timezone: "Europe/Kiev"
+  timezone: TIMEZONE
 });
